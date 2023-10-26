@@ -5,7 +5,7 @@ export interface User {
   email: string;
   number: string;
   searchCount: number;
-  key: number
+  key: number;
 }
 
 const App: React.FC = () => {
