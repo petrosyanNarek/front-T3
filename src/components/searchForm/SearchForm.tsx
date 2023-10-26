@@ -14,12 +14,13 @@ interface SearchFormProps {
     setUsers: React.Dispatch<React.SetStateAction<User[]>>;
 }
 
-const searchUser = async (searchParams: SearchParams) => await http.post('/search', searchParams)
+const searchUser = async (searchParams: SearchParams) => await http.post('/search', searchParams);
 
 const SearchForm: React.FC<SearchFormProps> = ({ setUsers }) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [api, contextHolder] = notification.useNotification();
     const [form] = Form.useForm();
+    
     const onFinish = (values: SearchParams) => {
         setLoading(true);
         searchUser(values)
@@ -51,7 +52,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setUsers }) => {
             })
             .finally(() => {
                 setLoading(false);
-            })
+            });
     };
 
     return (
